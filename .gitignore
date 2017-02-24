@@ -1,0 +1,10 @@
+### OS Files
+
+.DS_Store
+._*
+Thumbs.db
+
+
+### Project Folders
+node_modules
+public/img/movies-posters

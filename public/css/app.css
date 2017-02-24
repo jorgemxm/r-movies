@@ -1,0 +1,76 @@
+/*-----------------------------------
+/* Helpers
+/*-----------------------------------*/
+.show-it { display: block; }
+.hide-it { display: none; }
+
+.collapsed {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.is-flex.is-flex-column {
+    flex-direction: column;
+}
+
+.text-hide {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+
+/*-----------------------------------
+/* Images
+/*-----------------------------------*/
+.image.is-2by3 { padding-top: 150%; }
+
+.image.is-2by3 img {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+/*-----------------------------------
+/* Main Styles
+/*-----------------------------------*/
+.nav .is-brand .icon {
+    margin-right: 5px;
+    border-color: #fff;
+}
+
+.nav .is-brand:hover .icon {
+    border-color: #fff;
+}
+
+.component-search .control .input {
+    border-radius: 3px 0 0 3px;
+    margin-right: -1px;
+}
+
+.movie-tiles-container {
+    flex-wrap: wrap;
+}
+
+
+.component-movies .card-content { flex-grow: 1 }
+
+/*
+    Auto margins:
+    Prior to alignment via justify-content and align-self, any positive free space
+    is distributed to auto margins in that dimension.
+    - http://stackoverflow.com/a/31006659/align-an-element-to-bottom-with-flexbox
+    p { margin-bottom: auto; }  // Push following elements to the bottom
+    a { margin-top: auto; }     // Push it and following elements to the bottom
+    ---------------
+    Alternatively, you can make the element before the a grow to fill the available space:
+    p { flex-grow: 1; } /* Grow to fill available space
+*/
+.component-movies .card-content .content { flex-grow: 1; }
