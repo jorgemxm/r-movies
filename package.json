@@ -7,9 +7,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "server": "json-server --watch db/movies_api.json",
-    "server-webpack": "webpack-dev-server --inline",
-    "server-watch": "webpack-dev-server --watch-poll",
+    "dev": "webpack --watch --progress --hide-modules",
     "build-dev": "webpack --progress --hide-modules",
     "build-prod": "webpack --progress --hide-modules --env.prod=true",
     "watch": "webpack --watch --progress --hide-modules"

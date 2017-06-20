@@ -1,31 +1,17 @@
 # R-Movies
 Example App using React, ReactRouter & Bulma.css
-- **App preview:** [https://r-movies.herokuapp.com/](https://r-movies.herokuapp.com/)
+- **App preview:** <https://r-movies.herokuapp.com/>
 
+---
 #### Install:
- - `yarn install`
- - Open a terminal tab and type: `yarn run watch`
- - Open a secondary tab and run: `yarn run server`
- - Go to [http://localhost:3000/](http://localhost:3000/)
+ - `yarn install` or `yarn`
 
 ---
 
-#### Builds
-- Webpack watch `yarn run watch`
-- Webpack Build Development `yarn run build-dev`
-- Webpack Build Production `yarn run build-prod`
+#### Development
+ - Open a terminal tab and type: `yarn run dev`
+ - Open a secondary tab and run: `yarn start`
+ - Go to <http://localhost:3000/>
 
----
-
-#### Dependencies:
- - react
- - react-router
- - babel
- - axios
- - webpack-2
- - moment.js
- - bulma.io
- - FontAwesome
- - lodash
- - json-server
- - omdbapi
+#### Production
+ - yarn run build-prod
