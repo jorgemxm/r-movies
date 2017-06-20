@@ -1,5 +1,4 @@
-'use strict'
+'use strict';
 
-export { Movies } from "./Movies"
-export { MovieImage } from "./MovieImage"
-export { Movie } from "./Movie"
+export { default as Movies } from './Movies';
+export { default as Movie } from './Movie';

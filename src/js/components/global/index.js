@@ -1,5 +1,5 @@
-'use strict'
+'use strict';
 
-export { Header } from './Header'
-export { Footer } from './Footer'
-export { NotFound } from './NotFound'
+export { default as Header } from './Header';
+export { default as Footer } from './Footer';
+export { default as NotFound } from './NotFound';

@@ -1,9 +1,10 @@
 //-----------------------------------
-// Json-server Config
+// Server Config
 //-----------------------------------
-const server = require('./src/server')
-const port = process.env.PORT || 3000
+const server = require('./src/server');
 
-server.listen(port, () => {
-  console.log('json-server: http://localhost:' + port)
-})
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`json-server: http://localhost:${ PORT }`);
+});
