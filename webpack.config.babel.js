@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 3000;
 
 let wpConfigBase = {
 
+  // devtool options for development: eval | cheap-eval-source-map | cheap-module-eval-source-map
+  devtool: 'cheap-eval-source-map', // Enabled in Dev environment
+
   target:'web',
   cache: true,
   context: path.join(__dirname, 'src/js'),
@@ -71,14 +74,12 @@ let wpConfigBase = {
     modules: false
   },
 
-  // devtool options for development: eval | cheap-eval-source-map | cheap-module-eval-source-map
-  devtool: 'eval', // Enabled in Dev environment
-
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     compress: true,
     port: PORT
   }
+
 };
 
 
@@ -90,7 +91,7 @@ export default function(env) {
 
   if ( env && env.prod === 'true' ) {
 
-    wpConfigBase.devtool = 'source-map';
+    wpConfigBase.devtool = 'cheap-module-source-map'; // 'source-map';
 
     wpConfigBase.plugins.push(
       new webpack.DefinePlugin({
