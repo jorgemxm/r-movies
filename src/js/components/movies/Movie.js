@@ -112,8 +112,8 @@ class Movie extends Component {
 
     const movie = this.state.movie;
 
-    if (!movie.Title) {
-      return <div className="page--movie movie container" />;
+    if (!movie || !movie.Title) {
+      return <div className="page--movie no-movies container" />;
     }
 
     return (
