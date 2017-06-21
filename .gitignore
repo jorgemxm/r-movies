@@ -5,6 +5,12 @@
 Thumbs.db
 
 
+### IDE / Code Editors
+.tern-project
+.vscode
+.atomignore
+
+
 ### Project Folders
 node_modules
 public/img/movies-posters
