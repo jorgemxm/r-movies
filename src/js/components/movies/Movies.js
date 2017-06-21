@@ -19,6 +19,7 @@ const propTypes = {
 };
 
 
+
 class Movies extends Component {
 
   constructor(props){
@@ -30,31 +31,39 @@ class Movies extends Component {
 
   }
 
+
   componentDidMount() {
     this.getData();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps) {
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.genre !== this.props.match.params.genre) {
       this.getData();
     }
   }
 
 
   getData() {
+    let sortedMovies;
 
-    // If Filter by Type
+    // If Filter by Genre
     if (this.props.match.params.genre) {
-      services.getByGenre(this.props.match.params.genre) // it gets the param :name from the url
+      services.getByGenre(this.props.match.params.genre)
       .then(data => {
+
+        // Sort Movies by title ASC
+        sortedMovies = _.sortBy(data, [obj => obj.Title]);
+
+        // Update Movies State with the new Array
         this.setState((state, props) => {
-          // return { movies: data }
           return {
-            movies: _.sortBy(data, [obj => obj.Title])
-          }
+            movies: sortedMovies
+          };
         });
       });
     }
+
 
     // Default Route / All Movies
     else {
@@ -71,6 +80,7 @@ class Movies extends Component {
 
 
   render() {
+
     if (!this.state.movies) {
       return <div>:[ There are no movies</div>
     }
