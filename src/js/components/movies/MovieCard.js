@@ -5,7 +5,7 @@
 // Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 // Custom Components
 import MovieImage from './MovieImage';

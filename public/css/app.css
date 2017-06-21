@@ -55,9 +55,9 @@
   margin-right: -1px;
 }
 
-.movie-tiles-container {
-  flex-wrap: wrap;
-}
+.page--not-found { padding: 8rem 0; }
+
+.movie-tiles-container { flex-wrap: wrap; }
 
 .component-movies { padding-top: 1.5rem; }
 

@@ -1,14 +1,14 @@
 'use strict';
 
-// import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import routes from './config/routes';
-//--------------
+import Routes from './Routes';
 
+//--------------
 // import App from './app';
 // ReactDOM.render( <App />, document.getElementById('app') );
 
 ReactDOM.render(
-  routes,
+  <Routes />,
   document.getElementById('app')
-);
+)

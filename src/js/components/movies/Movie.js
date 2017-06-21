@@ -11,7 +11,7 @@ import helpers from '../../utils/helpers';
 import services from '../../services';
 
 const propTypes = {
-  params: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired
 };
 
 
@@ -70,8 +70,8 @@ class Movie extends Component {
   *
   */
   getData() {
-    if (this.props.params.imdb) {
-      services.getByIMDB(this.props.params.imdb)
+    if (this.props.match.params.imdb) {
+      services.getByIMDB(this.props.match.params.imdb)
       .then(response => {
         this.setState((state, props) => {
           return {
@@ -112,10 +112,12 @@ class Movie extends Component {
 
     const movie = this.state.movie;
 
-    if (movie.Title === '') { return <div className="movie container" />; }
+    if (!movie.Title) {
+      return <div className="page--movie movie container" />;
+    }
 
     return (
-      <div className="movie container">
+      <div className="page--movie movie container">
         <div className="columns">
 
           <div className="column is-4">

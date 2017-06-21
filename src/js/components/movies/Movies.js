@@ -5,24 +5,29 @@
 //-----------------------------------
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import { Route, Switch } from 'react-router-dom';
 import _ from 'lodash';
 
 //--------------
+import MoviesHeader from './MoviesHeader';
 import MovieCard from './MovieCard';
 // import helpers from '../../utils/helpers';
 import services from '../../services';
 
 const propTypes = {
-  params: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired
 };
+
 
 class Movies extends Component {
 
   constructor(props){
     super(props);
+
     this.state = {
       movies: []
     };
+
   }
 
   componentDidMount() {
@@ -35,15 +40,12 @@ class Movies extends Component {
     }
   }
 
-  // componentWillUpdate(nextProps, nextState) {
-  //
-  // },
 
   getData() {
 
     // If Filter by Type
-    if (this.props.params.genre) {
-      services.getByGenre(this.props.params.genre) // it gets the param :name from the url
+    if (this.props.match.params.genre) {
+      services.getByGenre(this.props.match.params.genre) // it gets the param :name from the url
       .then(data => {
         this.setState((state, props) => {
           // return { movies: data }
@@ -69,43 +71,21 @@ class Movies extends Component {
 
 
   render() {
+    if (!this.state.movies) {
+      return <div>:[ There are no movies</div>
+    }
 
     const movies = this.state.movies.map( (movie, index) => (
-      <MovieCard key={ movie.imdbID } { ...movie } />)
-    );
+      <MovieCard key={ movie.imdbID } { ...movie } />
+    ));
 
     return (
-      <div>
-        <section className="hero is-light">
-          <div className="hero-body">
-            <div className="container level">
-              <div className="level-left">
-                <div>
-                  <h1 className="title">All Movies</h1>
-                  <h2 className="subtitle">Subtitle</h2>
-                </div>
-              </div>
-              <div className="level-right">
-                <p className="title is-4">
-                  <span className="tag is-large is-warning">
-                    { this.state.movies.length }
-                  </span>
-                  <span> Movies</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+      <div className="page--movies">
 
-        {/* <div>
-          { type &&
-          <h2>
-            <span className={"label type-" + type.toLowerCase() }>
-              {type}
-            </span>
-          </h2>
-          }
-        </div> */}
+        <MoviesHeader
+          totalMovies={ this.state.movies.length }
+          { ...this.props }
+        />
 
         <div className="component-movies">
           <div className="container">
