@@ -72,7 +72,9 @@ const MovieCard = ({
           <small className="is-pulled-right">{ Year }</small>
         </div>
 
-        <div className="content">{ helpers.dotdotdot(Plot) }</div>
+        <div className="content">
+          { helpers.dotdotdot(Plot, 40) }
+        </div>
 
         <div className="card-tags control is-grouped">
           { _printTags(Genre) }

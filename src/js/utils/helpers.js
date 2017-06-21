@@ -13,9 +13,9 @@ class Helpers {
 
   // Add Ellipsis to the given text
   //--------------
-  static dotdotdot(text) {
+  static dotdotdot(text, length = 180) {
     return _.truncate(text, {
-      length: 180,          // How many characters are shown by default
+      length,               // How many characters are shown by default
       separator: /\W?\s/,   // Truncate by word boundary.
       omission: '…'         // &hellip;
     });
