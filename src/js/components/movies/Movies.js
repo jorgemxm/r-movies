@@ -9,7 +9,7 @@ import _ from 'lodash';
 
 //--------------
 import MovieCard from './MovieCard';
-// import helpers from '../helpers';
+// import helpers from '../../utils/helpers';
 import services from '../../services';
 
 const propTypes = {

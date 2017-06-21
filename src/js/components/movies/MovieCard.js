@@ -9,7 +9,7 @@ import { Link } from 'react-router';
 
 // Custom Components
 import MovieImage from './MovieImage';
-import helpers from '../helpers';
+import helpers from '../../utils/helpers';
 
 const propTypes = {
   Title: PropTypes.string.isRequired,

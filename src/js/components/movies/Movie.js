@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import MovieImage from './MovieImage';
-import helpers from '../helpers';
+import helpers from '../../utils/helpers';
 import services from '../../services';
 
 const propTypes = {
@@ -65,18 +65,6 @@ class Movie extends Component {
   componentDidMount() {
     this.getData();
   }
-
-  /**
-  *
-  */
-  // componentWillReceiveProps(nextProps) {
-  // },
-
-  /**
-  *
-  */
-  // shouldComponentUpdate(nextProps, nextState) {
-  // },
 
   /**
   *

@@ -40,12 +40,13 @@ class Helpers {
     const path = '/img/movies-posters/';
     const poster = Poster.replace(/https:\/\/images-na.ssl-images-amazon.com\/images\/M\//, '');
 
+
     // Used for Development Purposes
-    // return path + poster;
+    return path + poster;
 
     // Used for External Images
     //--------------
-    return Poster;
+    // return Poster;
   }
 
 

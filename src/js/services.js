@@ -4,7 +4,7 @@
 // HTTP Requests Services
 //-----------------------------------
 import http from 'axios';
-import helpers from './components/helpers';
+import helpers from './utils/helpers';
 
 class Services {
 
