@@ -16,7 +16,7 @@ let wpConfigBase = {
   context: path.join(__dirname, 'src/js'),
 
   entry: {
-    app: './core.js',
+    app: './main.js',
     vendor: [
       'react',
       'react-dom',
