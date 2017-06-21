@@ -7,8 +7,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  // BrowserRouter,
-  HashRouter,
+  BrowserRouter,
+  // HashRouter,
   Redirect,
   Switch,
   Route
@@ -25,8 +25,8 @@ import { NotFound } from './components/global';
 // All Routes
 //--------------
 const Routes = props => (
-  <HashRouter>
     <div className="app--container">
+  <BrowserRouter>
       <Header />
 
       <main className="app--main">
@@ -38,7 +38,7 @@ const Routes = props => (
           {/* <Route path="/movies" component={ Movies } /> */}
           {/* <Route path="/movie" component={ Movie } /> */}
           <Route exact path='/movies' component={ Movies } />
-          <Route path='/movies/:genre' component={ Movies }/>
+          <Route path='/movies/:genre' component={ Movies } />
           <Route path="/movie/:imdb/:title" component={ Movie } />
           <Route path="" component={ NotFound } /> {/* <Route path="*" /> */}
         </Switch>
@@ -46,7 +46,7 @@ const Routes = props => (
 
       <Footer />
     </div>
-  </HashRouter>
+  </BrowserRouter>
 )
 
 Routes.propTypes = {

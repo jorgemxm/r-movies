@@ -62,7 +62,7 @@ class Movies extends Component {
       .then(data => {
         this.setState((state, props) => {
           return {
-            movies: data.movies
+            movies: data
           }
         });
       });
@@ -75,7 +75,7 @@ class Movies extends Component {
       return <div>:[ There are no movies</div>
     }
 
-    const movies = this.state.movies.map( (movie, index) => (
+    const moviesList = this.state.movies.map( (movie, index) => (
       <MovieCard key={ movie.imdbID } { ...movie } />
     ));
 
@@ -90,7 +90,7 @@ class Movies extends Component {
         <div className="component-movies">
           <div className="container">
             <div className="tile is-ancestor movie-tiles-container">
-              { movies }
+              { moviesList }
             </div>
           </div>
         </div>

@@ -3,21 +3,30 @@
 //-----------------------------------
 const jsonServer = require('json-server');
 const clone = require('clone');
-const data = require('../db/movies_api.json');
+const path = require('path');
+const data = require(path.join(__dirname, '../db/movies_api.json'));
+const history = require('connect-history-api-fallback');
 
-const app = jsonServer.create();
+const server = jsonServer.create();
 const router = jsonServer.router(clone(data));
 
-app.use((req, res, next) => {
+// Set default middlewares (logger, static, cors and no-cache)
+// const middlewares = jsonServer.defaults();
+// server.use(middlewares);
+
+server.use(history());
+
+server.use((req, res, next) => {
   if (req.path === '/') return next();
   router.db.setState(clone(data));
   next();
 });
 
-app.use(jsonServer.defaults({
+server.use(jsonServer.defaults({
   logger: process.env.NODE_ENV !== 'production'
 }));
 
-app.use(router);
+// Use default router
+server.use('/api', router);
 
-module.exports = app;
+module.exports = server;
