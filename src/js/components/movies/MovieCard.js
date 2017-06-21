@@ -70,7 +70,7 @@ const MovieCard = ({
         </div>
 
         <div className="content">
-          { helpers.dotdotdot(Plot, 40) }
+          { helpers.dotdotdot(Plot, 80) }
         </div>
 
         <div className="card-tags control is-grouped">
