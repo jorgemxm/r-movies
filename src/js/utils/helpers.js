@@ -42,11 +42,14 @@ class Helpers {
 
 
     // Used for Development Purposes
-    return path + poster;
+    //--------------
+    if (process.env.NODE_ENV !== 'production') {
+      return path + poster;
+    }
 
     // Used for External Images
-    //--------------
-    // return Poster;
+    return Poster;
+
   }
 
 
