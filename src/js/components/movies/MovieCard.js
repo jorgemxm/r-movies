@@ -4,12 +4,22 @@
 
 // Dependencies
 import React from 'react';
-import { Link } from 'react-router';
-// import _ from 'lodash';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // Custom Components
 import MovieImage from './MovieImage';
-import helpers from '../helpers';
+import helpers from '../../utils/helpers';
+
+const propTypes = {
+  Title: PropTypes.string.isRequired,
+  imdbID: PropTypes.string.isRequired,
+  Runtime: PropTypes.string.isRequired,
+  Year: PropTypes.string.isRequired,
+  Poster: PropTypes.string.isRequired,
+  Plot: PropTypes.string.isRequired,
+  Genre: PropTypes.string.isRequired
+};
 
 
 /**
@@ -18,10 +28,7 @@ import helpers from '../helpers';
 */
 const _printTags = Genre => (
   Genre.split(', ').map(tag => (
-    <div
-      key={ tag }
-      className="control">
-
+    <div key={ tag } className="control">
       <Link
         className="button is-small is-outlined"
         to={ `/movies/${ helpers.slugify(tag).toLowerCase() }/` }
@@ -62,7 +69,9 @@ const MovieCard = ({
           <small className="is-pulled-right">{ Year }</small>
         </div>
 
-        <div className="content">{ helpers.dotdotdot(Plot) }</div>
+        <div className="content">
+          { helpers.dotdotdot(Plot, 80) }
+        </div>
 
         <div className="card-tags control is-grouped">
           { _printTags(Genre) }
@@ -73,14 +82,6 @@ const MovieCard = ({
   </div>
 );
 
-MovieCard.propTypes = {
-  Title: React.PropTypes.string.isRequired,
-  imdbID: React.PropTypes.string.isRequired,
-  Runtime: React.PropTypes.string.isRequired,
-  Year: React.PropTypes.string.isRequired,
-  Poster: React.PropTypes.string.isRequired,
-  Plot: React.PropTypes.string.isRequired,
-  Genre: React.PropTypes.string.isRequired
-};
+MovieCard.propTypes = propTypes;
 
 export default MovieCard;

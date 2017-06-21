@@ -13,9 +13,9 @@ class Helpers {
 
   // Add Ellipsis to the given text
   //--------------
-  static dotdotdot(text) {
+  static dotdotdot(text, length = 180) {
     return _.truncate(text, {
-      length: 180,          // How many characters are shown by default
+      length,               // How many characters are shown by default
       separator: /\W?\s/,   // Truncate by word boundary.
       omission: '…'         // &hellip;
     });
@@ -40,12 +40,16 @@ class Helpers {
     const path = '/img/movies-posters/';
     const poster = Poster.replace(/https:\/\/images-na.ssl-images-amazon.com\/images\/M\//, '');
 
+
     // Used for Development Purposes
-    // return path + poster;
+    //--------------
+    if (process.env.NODE_ENV !== 'production') {
+      return path + poster;
+    }
 
     // Used for External Images
-    //--------------
     return Poster;
+
   }
 
 

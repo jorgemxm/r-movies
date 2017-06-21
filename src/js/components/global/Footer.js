@@ -1,10 +1,10 @@
 'use strict';
 
 import React from 'react';
-// import { Link } from 'react-router';
+// import { Link } from 'react-router-dom';
 
 const Footer = () => (
-  <footer className="footer">
+  <footer className="app--footer">
     <div className="container">
       <div className="content has-text-centered">
         <span className="icon">

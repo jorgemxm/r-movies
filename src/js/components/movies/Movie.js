@@ -4,10 +4,16 @@
 // Movie Item
 //-----------------------------------
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import MovieImage from './MovieImage';
-import helpers from '../helpers';
+import helpers from '../../utils/helpers';
 import services from '../../services';
+
+const propTypes = {
+  match: PropTypes.object.isRequired
+};
+
 
 class Movie extends Component {
   constructor(props) {
@@ -63,21 +69,9 @@ class Movie extends Component {
   /**
   *
   */
-  // componentWillReceiveProps(nextProps) {
-  // },
-
-  /**
-  *
-  */
-  // shouldComponentUpdate(nextProps, nextState) {
-  // },
-
-  /**
-  *
-  */
   getData() {
-    if (this.props.params.imdb) {
-      services.getByIMDB(this.props.params.imdb)
+    if (this.props.match.params.imdb) {
+      services.getByIMDB(this.props.match.params.imdb)
       .then(response => {
         this.setState((state, props) => {
           return {
@@ -118,10 +112,12 @@ class Movie extends Component {
 
     const movie = this.state.movie;
 
-    if (movie.Title === '') { return <div className="movie container" />; }
+    if (!movie || !movie.Title) {
+      return <div className="page--movie no-movies container" />;
+    }
 
     return (
-      <div className="movie container">
+      <div className="page--movie movie container">
         <div className="columns">
 
           <div className="column is-4">
@@ -209,8 +205,6 @@ class Movie extends Component {
   }
 }
 
-Movie.propTypes = {
-  params: React.PropTypes.object.isRequired
-};
+Movie.propTypes = propTypes;
 
 export default Movie;

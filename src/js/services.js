@@ -4,66 +4,46 @@
 // HTTP Requests Services
 //-----------------------------------
 import http from 'axios';
-import helpers from './components/helpers';
+import helpers from './utils/helpers';
 
 class Services {
 
   /**
-  *
+  * Fetch All Movies
+  * @return { Array } All Movies. Array of Objects
   */
   static getAll() {
-    return http.get('/db') // .get('/movies')
+    return http.get('/api/movies')
     .then(({ data }) => data) // ES6 Object deconstruction === (return response.data)
-    .catch(response => console.error('Error', response));
+    .catch(response => console.error('Error: No Data', response));
   }
-
-
-  /**
-  *
-  */
-  static getByIMDB(id) {
-    return http.get(`/movies?imdbID=${ id }`)
-    .then(({ data }) => data[0]) // ES6 Object deconstruction
-    .catch(response => console.error('Error', response));
-  }
-
-
-  /**
-  *
-  */
-  /*
-  static getByName(name) {
-
-    return this.getAll()
-    .then(response => {
-
-      let results = response.movies.filter(movie => (
-        helpers.slugify(movie.Title) === helpers.slugify(name)
-      ));
-
-      if (results.length > 0 ) {
-        return Promise.resolve(results[0] );
-      } else {
-        return Promise.reject();
-      }
-    });
-    // If 'this' context is needed inside the callback function
-    // NOTE: Not necessary with arrow functions
-    // }.bind(this) );``
-  }
-  */
 
 
 
   /**
-  *
+  * Fetch Movie Data for the given IMDB-ID
+  * @param { String } imdbID - Movie ID
+  * @return { Object } Movie Data that matches the IMDB-id
+  */
+  static getByIMDB(imdbID) {
+    return http.get(`/api/movies?imdbID=${ imdbID }`)
+    .then(({ data }) => data[0])
+    .catch(response => console.error('Error: There is no Movie with that id', response));
+  }
+
+
+
+  /**
+  * Fetch Movies By Genre
+  * @param { String } type - Movie Genre eg: animation, adventure etc.
+  * @return { Array } Movies filtered by Genre
   */
   static getByGenre(type) {
 
     return this.getAll()
     .then(response => {
 
-      const results = response.movies.filter(movie => (
+      const results = response.filter(movie => (
         movie.Genre.split(', ').some(_type => (
           helpers.slugify(_type) === helpers.slugify(type)
         ))
@@ -73,7 +53,8 @@ class Services {
         ? Promise.resolve(results)
         : Promise.reject();
 
-    });
+    })
+    .catch(response => console.error('Error: No movies with that Genre were Found', response));
   }
 
 }
