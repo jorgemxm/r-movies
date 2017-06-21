@@ -28,10 +28,7 @@ const propTypes = {
 */
 const _printTags = Genre => (
   Genre.split(', ').map(tag => (
-    <div
-      key={ tag }
-      className="control">
-
+    <div key={ tag } className="control">
       <Link
         className="button is-small is-outlined"
         to={ `/movies/${ helpers.slugify(tag).toLowerCase() }/` }
