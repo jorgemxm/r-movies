@@ -25,11 +25,11 @@ import { NotFound } from './components/global';
 // All Routes
 //--------------
 const Routes = props => (
-    <div className="app--container">
   <BrowserRouter>
+    <div className="app__container">
       <Header />
 
-      <main className="app--main">
+      <main className="app__main">
         <Switch>
           {/* <Route exact path="/" component={ Movies } /> */}
           <Route exact path="/" render={ props => (
