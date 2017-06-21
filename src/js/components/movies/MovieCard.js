@@ -4,12 +4,22 @@
 
 // Dependencies
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
-// import _ from 'lodash';
 
 // Custom Components
 import MovieImage from './MovieImage';
 import helpers from '../helpers';
+
+const propTypes = {
+  Title: PropTypes.string.isRequired,
+  imdbID: PropTypes.string.isRequired,
+  Runtime: PropTypes.string.isRequired,
+  Year: PropTypes.string.isRequired,
+  Poster: PropTypes.string.isRequired,
+  Plot: PropTypes.string.isRequired,
+  Genre: PropTypes.string.isRequired
+};
 
 
 /**
@@ -73,14 +83,6 @@ const MovieCard = ({
   </div>
 );
 
-MovieCard.propTypes = {
-  Title: React.PropTypes.string.isRequired,
-  imdbID: React.PropTypes.string.isRequired,
-  Runtime: React.PropTypes.string.isRequired,
-  Year: React.PropTypes.string.isRequired,
-  Poster: React.PropTypes.string.isRequired,
-  Plot: React.PropTypes.string.isRequired,
-  Genre: React.PropTypes.string.isRequired
-};
+MovieCard.propTypes = propTypes;
 
 export default MovieCard;

@@ -4,10 +4,16 @@
 // Movie Item
 //-----------------------------------
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import MovieImage from './MovieImage';
 import helpers from '../helpers';
 import services from '../../services';
+
+const propTypes = {
+  params: PropTypes.object.isRequired
+};
+
 
 class Movie extends Component {
   constructor(props) {
@@ -209,8 +215,6 @@ class Movie extends Component {
   }
 }
 
-Movie.propTypes = {
-  params: React.PropTypes.object.isRequired
-};
+Movie.propTypes = propTypes;
 
 export default Movie;

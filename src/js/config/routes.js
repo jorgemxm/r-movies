@@ -12,7 +12,7 @@ import { createHashHistory } from 'history';
 
 // Custom Modules
 //--------------
-import App from '../app';
+import App from '../containers/app';
 import { Movies, Movie } from '../components/movies';
 import { NotFound } from '../components/global';
 

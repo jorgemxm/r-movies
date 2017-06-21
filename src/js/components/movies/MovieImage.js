@@ -1,6 +1,12 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  alt: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired
+};
 
 // React Styleguide - (relying on function name inference is discouraged)
 // eg: const MovieImage = (props) = {}
@@ -15,10 +21,6 @@ function MovieImage(props) {
   );
 }
 
-MovieImage.propTypes = {
-  alt: React.PropTypes.string.isRequired,
-  src: React.PropTypes.string.isRequired
-};
-
+MovieImage.propTypes = propTypes;
 
 export default MovieImage;

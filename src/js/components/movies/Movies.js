@@ -4,7 +4,7 @@
 // List of Movies
 //-----------------------------------
 import React, { Component } from 'react';
-// import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 //--------------
@@ -12,6 +12,9 @@ import MovieCard from './MovieCard';
 // import helpers from '../helpers';
 import services from '../../services';
 
+const propTypes = {
+  params: PropTypes.object.isRequired
+};
 
 class Movies extends Component {
 
@@ -116,8 +119,6 @@ class Movies extends Component {
   }
 }
 
-Movies.propTypes = {
-  params: React.PropTypes.object.isRequired
-};
+Movies.propTypes = propTypes;
 
 export default Movies;

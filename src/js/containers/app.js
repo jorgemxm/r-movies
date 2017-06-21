@@ -1,8 +1,16 @@
 'use strict';
 
 import React from 'react';
-import { Header, Footer } from './components/global';
+import PropTypes from 'prop-types';
 
+import { Header, Footer } from '../components/global';
+
+const propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
+}
 
 //-----------------------------------
 // Main App
@@ -20,11 +28,6 @@ const App = props => (
   </div>
 );
 
-App.propTypes = {
-  children: React.PropTypes.oneOfType([
-    React.PropTypes.arrayOf(React.PropTypes.node),
-    React.PropTypes.node
-  ])
-};
+App.propTypes = propTypes;
 
 export default App;
