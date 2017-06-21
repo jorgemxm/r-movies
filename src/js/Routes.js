@@ -39,7 +39,7 @@ const Routes = props => (
           {/* <Route path="/movie" component={ Movie } /> */}
           <Route exact path='/movies' component={ Movies } />
           <Route path='/movies/:genre' component={ Movies }/>
-          <Route path="/movie/:imdb/:slug" component={ Movie } />
+          <Route path="/movie/:imdb/:title" component={ Movie } />
           <Route path="" component={ NotFound } /> {/* <Route path="*" /> */}
         </Switch>
       </main>
