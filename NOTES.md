@@ -5,7 +5,7 @@
 - "server": "json-server --watch db/movies_api.json",
 
 ### Webpack Builds
-"watch": "webpack --watch --progress --hide-modules",
+"dev": "webpack --watch --progress --hide-modules",
 "build-dev": "webpack --progress --hide-modules",
 "build-prod": "webpack --progress --hide-modules --env.prod=true",
 
