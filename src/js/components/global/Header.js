@@ -19,12 +19,14 @@ const Header = props => (
 
         <div className="column component-search --nav-center">
           <div className="control is-grouped nav-item">
-            <div className="control is-grouped is-expanded">
+            <div className="is-hidden control is-grouped is-expanded">
+              { /*
               <input className="input" type="text" placeholder="Find a Movie..." />
               <button className="button">
                 <span className="text-hide">Search</span>
                 <i className="fa fa-search" aria-hidden="true" />
               </button>
+              */ }
             </div>
           </div>
         </div>
@@ -36,7 +38,7 @@ const Header = props => (
         </div>
 
         <div id="nav-menu" className="nav-right nav-menu">
-          <div className="nav-item">
+          <div className="is-hidden nav-item">
             <Link className="button" to="/">By Title</Link>
             <Link className="button" to="/">By Year</Link>
           </div>

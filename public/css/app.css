@@ -75,7 +75,8 @@
   p { flex-grow: 1; } /* Grow to fill available space
 */
 .component-movies .card-content .content { flex-grow: 1; }
-
+.card-tags { flex-wrap: wrap; }
+.card-tags .control { margin-top: 10px; }
 
 /*-----------------------------------*
 * Tabs

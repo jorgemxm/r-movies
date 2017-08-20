@@ -26,8 +26,11 @@ class Movies extends Component {
     super(props);
 
     this.state = {
-      movies: []
+      movies: [],
+      searchTerm: ''
     };
+
+    this.updateSearchTerm = this.updateSearchTerm.bind(this);
 
   }
 
@@ -78,6 +81,11 @@ class Movies extends Component {
     }
   }
 
+  updateSearchTerm(event) {
+    // this.setState((state, props) => { searchTerm: event.target.value }); // TODO Review --> Warning: This synthetic event is reused for performance reasons...
+    this.setState({ searchTerm: event.target.value });
+  }
+
 
   render() {
 
@@ -85,9 +93,12 @@ class Movies extends Component {
       return <div>:[ There are no movies</div>
     }
 
-    const moviesList = this.state.movies.map( (movie, index) => (
-      <MovieCard key={ movie.imdbID } { ...movie } />
-    ));
+    // NOTE: When filtering, .toLowerCase() is used in all strings in order to avoid "case-sensitve" searchs
+    const moviesList = this.state.movies
+      .filter(movie => `${ movie.Title } ${ movie.Plot }`.toLowerCase().indexOf(this.state.searchTerm.toLowerCase()) >= 0 )
+      .map( movie => (
+        <MovieCard key={ movie.imdbID } { ...movie } />
+      ));
 
     return (
       <div className="page--movies">
@@ -99,6 +110,17 @@ class Movies extends Component {
 
         <div className="component-movies">
           <div className="container">
+
+            <div className="search-box block">
+              <input
+                className="input"
+                type="text"
+                placeholder="Find a Movie..."
+                value={ this.state.searchTerm }
+                onChange={ this.updateSearchTerm }
+              />
+            </div>
+
             <div className="tile is-ancestor movie-tiles-container">
               { moviesList }
             </div>
