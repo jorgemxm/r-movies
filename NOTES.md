@@ -1,11 +1,11 @@
-# Package.json Scripts
+# Package.json Scripts
 ----
 
 ## Start Json server
 - "start": "node index"
 - "server": "json-server --watch db/movies_api.json"
 
-## Webpack Builds
+## Webpack Builds
 - "dev": "webpack --watch --progress --hide-modules"
 - "build-dev": "webpack --progress --hide-modules"
 - "build-prod": "webpack --progress --hide-modules --env.prod=true"
