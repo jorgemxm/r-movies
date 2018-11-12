@@ -22,6 +22,13 @@ module.exports = {
     'plugin:react/recommended',
   ],
 
+  // https://github.com/yannickcr/eslint-plugin-react
+  settings: {
+    react: {
+      pragma: 'React', // Pragma to use, default to "React"
+      version: "16.0",
+    }
+  },
 
   /**
   * ERROR Level: Severity should be one of the following:
