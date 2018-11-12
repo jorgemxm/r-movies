@@ -14,3 +14,4 @@ Thumbs.db
 ### Project Folders
 node_modules
 public/img/movies-posters
+public/js/*
