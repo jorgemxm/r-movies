@@ -10,7 +10,8 @@
     "dev": "webpack --watch --progress --hide-modules",
     "build-dev": "webpack --progress --hide-modules",
     "build-prod": "webpack --progress --hide-modules --env.prod=true",
-    "lint": "eslint 'src/js/**'"
+    "lint": "eslint 'src/js/**'",
+    "prepare": "npm run build-prod"
   },
   "repository": {
     "type": "git",
