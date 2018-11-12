@@ -38,7 +38,7 @@ class Helpers {
     // Used for Local Images
     //--------------
     const path = '/img/movies-posters/';
-    const poster = Poster.replace(/https:\/\/images-na.ssl-images-amazon.com\/images\/M\//, '');
+    const poster = Poster.replace(/https?:\/\/\w.+-amazon.com\/images\/M\//, '');
 
 
     // Used for Development Purposes
