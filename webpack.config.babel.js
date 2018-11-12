@@ -45,8 +45,8 @@ let wpConfigBase = {
         options: {
           cacheDirectory: true,
           presets: [
-            ["es2015", { "modules": false }],
-            "react"
+            ['env', { 'modules': false }],
+            'react'
           ]
         }
       }
