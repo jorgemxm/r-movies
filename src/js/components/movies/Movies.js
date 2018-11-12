@@ -53,31 +53,31 @@ class Movies extends Component {
     // If Filter by Genre
     if (this.props.match.params.genre) {
       services.getByGenre(this.props.match.params.genre)
-      .then(data => {
+        .then(data => {
 
-        // Sort Movies by title ASC
-        sortedMovies = _.sortBy(data, [obj => obj.Title]);
+          // Sort Movies by title ASC
+          sortedMovies = _.sortBy(data, [obj => obj.Title]);
 
-        // Update Movies State with the new Array
-        this.setState((state, props) => {
-          return {
-            movies: sortedMovies
-          };
+          // Update Movies State with the new Array
+          this.setState((state, props) => {
+            return {
+              movies: sortedMovies
+            };
+          });
         });
-      });
     }
 
 
     // Default Route / All Movies
     else {
       services.getAll()
-      .then(data => {
-        this.setState((state, props) => {
-          return {
-            movies: data
-          }
+        .then(data => {
+          this.setState((state, props) => {
+            return {
+              movies: data
+            }
+          });
         });
-      });
     }
   }
 

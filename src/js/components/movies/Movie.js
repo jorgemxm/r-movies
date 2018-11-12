@@ -72,13 +72,13 @@ class Movie extends Component {
   getData() {
     if (this.props.match.params.imdb) {
       services.getByIMDB(this.props.match.params.imdb)
-      .then(response => {
-        this.setState((state, props) => {
-          return {
-            movie: response
-          }
+        .then(response => {
+          this.setState((state, props) => {
+            return {
+              movie: response
+            }
+          });
         });
-      });
     }
   }
 
@@ -105,7 +105,7 @@ class Movie extends Component {
     });
   }
 
-    /**
+  /**
     *
     */
   render() {
@@ -141,7 +141,7 @@ class Movie extends Component {
                     className={ `button ${ this.tabGet() === 1 ? 'is-warning is-outlined' : '' }` }
                     data-index="1"
                     onClick={ this.tabSet }
-                    > Info
+                  > Info
                   </button>
                 </li>
                 <li className={ (this.tabGet() === 2) ? 'is-active' : '' } >
@@ -150,7 +150,7 @@ class Movie extends Component {
                     className={ `button ${ this.tabGet() === 2 ? 'is-warning is-outlined' : '' }` }
                     data-index="2"
                     onClick={ this.tabSet }
-                    > Trailer
+                  > Trailer
                   </button>
                 </li>
               </ul>

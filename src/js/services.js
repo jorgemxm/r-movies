@@ -14,8 +14,8 @@ class Services {
   */
   static getAll() {
     return http.get('/api/movies')
-    .then(({ data }) => data) // ES6 Object deconstruction === (return response.data)
-    .catch(response => console.error('Error: No Data', response));
+      .then(({ data }) => data) // ES6 Object deconstruction === (return response.data)
+      .catch(response => console.error('Error: No Data', response));
   }
 
 
@@ -27,8 +27,8 @@ class Services {
   */
   static getByIMDB(imdbID) {
     return http.get(`/api/movies?imdbID=${ imdbID }`)
-    .then(({ data }) => data[0])
-    .catch(response => console.error('Error: There is no Movie with that id', response));
+      .then(({ data }) => data[0])
+      .catch(response => console.error('Error: There is no Movie with that id', response));
   }
 
 
@@ -41,20 +41,20 @@ class Services {
   static getByGenre(type) {
 
     return this.getAll()
-    .then(response => {
+      .then(response => {
 
-      const results = response.filter(movie => (
-        movie.Genre.split(', ').some(_type => (
-          helpers.slugify(_type) === helpers.slugify(type)
-        ))
-      ));
+        const results = response.filter(movie => (
+          movie.Genre.split(', ').some(_type => (
+            helpers.slugify(_type) === helpers.slugify(type)
+          ))
+        ));
 
-      return (results.length > 0)
-        ? Promise.resolve(results)
-        : Promise.reject();
+        return (results.length > 0)
+          ? Promise.resolve(results)
+          : Promise.reject();
 
-    })
-    .catch(response => console.error('Error: No movies with that Genre were Found', response));
+      })
+      .catch(response => console.error('Error: No movies with that Genre were Found', response));
   }
 
 }

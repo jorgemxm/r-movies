@@ -26,8 +26,8 @@ class Helpers {
   //--------------
   static formatDuration(runtime) {
     return moment
-    .duration(parseInt(runtime, 10), 'minutes')
-    .format('h [hrs], m [min]');
+      .duration(parseInt(runtime, 10), 'minutes')
+      .format('h [hrs], m [min]');
   }
 
 
