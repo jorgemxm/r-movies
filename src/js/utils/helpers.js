@@ -2,9 +2,6 @@
 
 import _ from 'lodash';
 import getSlug from 'speakingurl';
-import moment from 'moment';
-import 'moment-duration-format';
-
 
 //-----------------------------------
 // Utility Functions
@@ -25,9 +22,11 @@ class Helpers {
   // Format time-length
   //--------------
   static formatDuration(runtime) {
-    return moment
-      .duration(parseInt(runtime, 10), 'minutes')
-      .format('h [hrs], m [min]');
+    const duration = parseInt(runtime, 10);
+    const minutes = duration % 60;
+    const hours = Math.floor(duration / 60)
+
+    return `${ hours } hrs, ${ minutes } min`;
   }
 
 

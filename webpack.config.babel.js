@@ -25,9 +25,7 @@ let wpConfigBase = {
       'react-dom',
       'react-router',
       'lodash',
-      "moment",
-      "moment-duration-format",
-      "speakingurl"
+      'speakingurl'
     ]
   },
 
